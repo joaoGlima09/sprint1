@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="div_container" class="div_container">
+
+        <div id="div_resultado" class="div_resultado">
+
+
+
+        </div>
+        
+        <div id="div_calculadora" class="div_calculadora">
+        <h1> Simule suas Economias </h1> <br>
+        <!-- <h2> Veja quanto você economizara com nosso negócio</h2> <br> -->
+
+
+            <!-- Formalidades -->
+
+
+            <input placeholder="Nome da empresa" type="text" id="input_nome_empresa"> <br> <br>
+
+
+            <!-- Dados pra taxa de absenteísmo -->
+
+            <input placeholder="Quantidade de Funcionários" type="number" id="input_quant_funcionarios"> <br> <br>
+
+            <input placeholder="Horas total de atestados (ultimo mês)" type="number" id="input_horas_atestados_total"> <br> <br>
+
+            <input placeholder="Horas de atestados médicos" type="number" id="input_atestados_medicos"> <br> <br>
+
+
+            <!-- 
+                20 dias 8 horas por dia
+                Quantos dias por mês seus funcionários trabalham: <input type="number" id="input_dias_trabalhados"> <br> <br> 
+            -->
+
+            <!-- Calcula de Economia -->
+
+            <!-- Quanto você paga por mês aos seus funcionários (em reais): <input type="number" id="input_salario_funcionarios"> <br> <br> -->
+
+     
+                <button onclick="calcularTaxaDeAbsenteismo()"> <b> Calcular Economia </b> </button>
+    
+
+            <div id="div_mensagem"> </div>
+            
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<!-- 
+
+
+
+ -->
+
+<script>
+
+    function calcularTaxaDeAbsenteismo() {
+
+        // Nome da Empresa
+
+        var nomeEmpresa = input_nome_empresa.value
+
+        // Variaveis de calculo para a taxa de Absenteismo
+        
+        var atestadosTotal = Number(input_horas_atestados_total.value)
+        var atestadosMedicos = Number(input_atestados_medicos.value)
+        var funcionarios = Number(input_quant_funcionarios.value)
+        
+        var diasTrabalho = 22
+        var horasTrabalhoPorDia = 8
+        var horasMensaisTrabalhadas = (horasTrabalhoPorDia * diasTrabalho) * funcionarios
+
+        var absenteismo = atestadosTotal / horasMensaisTrabalhadas * 100
+        var absenteismoPorTemp = atestadosMedicos / horasMensaisTrabalhadas * 100
+        var causaPorTemp = absenteismo - absenteismoPorTemp
+
+        var gastoFuncMensal = 
+        
+        div_resultado.innerHTML = ` <br> A taxa de absenteismo da ${nomeEmpresa} é ${absenteismo}`
+
+        if (absenteismo >5) {
+            div_resultado.innerHTML += `<br> Ta feio ai hein`
+        } else {
+            div_resultado.innerHTML += `<br> TA SHOW!`
+        }
+
+    }
+
+    
+
+</script>
