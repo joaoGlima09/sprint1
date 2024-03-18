@@ -12,9 +12,9 @@
 
     <div id="div_container" class="div_container">
 
-        <div id="div_resultado" class="div_resultado">
+        <div id="div_imagem" class="div_imagem">
 
-
+            <img src="images/economia.png" alt="imagem_fundo">
 
         </div>
         
@@ -35,7 +35,9 @@
 
             <input placeholder="Horas total de atestados (ultimo mês)" type="number" id="input_horas_atestados_total"> <br> <br>
 
-            <input placeholder="Horas de atestados médicos" type="number" id="input_atestados_medicos"> <br> <br>
+            <input placeholder="Horas de atestados médicos (ultimo mês)" type="number" id="input_atestados_medicos"> <br> <br>
+
+            <input placeholder="Gasto com funcionários mensais" type="number" id="input_gasto_mensal"> <br> <br>
 
 
             <!-- 
@@ -79,23 +81,36 @@
         var atestadosTotal = Number(input_horas_atestados_total.value)
         var atestadosMedicos = Number(input_atestados_medicos.value)
         var funcionarios = Number(input_quant_funcionarios.value)
+        var gastoFuncMensal = Number(input_gasto_mensal.value)
         
-        var diasTrabalho = 22
+        var diasTrabalho = 20
         var horasTrabalhoPorDia = 8
-        var horasMensaisTrabalhadas = (horasTrabalhoPorDia * diasTrabalho) * funcionarios
+        var horasMensais = 20 * 8
+        var horasMensaisTrabalhadas = horasTrabalhoPorDia * diasTrabalho * funcionarios
 
-        var absenteismo = atestadosTotal / horasMensaisTrabalhadas * 100
-        var absenteismoPorTemp = atestadosMedicos / horasMensaisTrabalhadas * 100
-        var causaPorTemp = absenteismo - absenteismoPorTemp
+        var absenteismo = (atestadosTotal / horasMensaisTrabalhadas * 100).toFixed(2)
+        var absenteismoAnual = (absenteismo * 12).toFixed(2)
+        var absenteismoPorTemp = (atestadosMedicos / horasMensaisTrabalhadas * 100).toFixed(2)
+        var absenteismoPorTempAnual = (absenteismoPorTemp * 12).toFixed(2)
+        var causaPorTemp = (absenteismo - absenteismoPorTemp).toFixed(2)
 
-        var gastoFuncMensal = 
+        var mediaSalarial = gastoFuncMensal / funcionarios
+        var pagamentoPorHora = (mediaSalarial / horasMensais).toFixed(2)
+
+        var 
+
+        div_resultado.innerHTML = ` <br> A taxa de absenteismo da ${nomeEmpresa} é ${absenteismo}% por mês <br>
         
-        div_resultado.innerHTML = ` <br> A taxa de absenteismo da ${nomeEmpresa} é ${absenteismo}`
+        Dessa taxa de absenteismo ${causaPorTemp}% podem ter ocorrido devido as mudanças de temperatura <br>
+
+        Com isso, você paga em salários R$${mediaSalarial} sendo que o funcionário não produz <br>
+
+        `
 
         if (absenteismo >5) {
             div_resultado.innerHTML += `<br> Ta feio ai hein`
         } else {
-            div_resultado.innerHTML += `<br> TA SHOW!`
+            div_resultado.innerHTML += `<br> TA show!`
         }
 
     }
