@@ -40,7 +40,7 @@ body {
 }
 
 
-.div_imagem {
+/* .div_resultado {
 
     margin: auto;
     
@@ -54,12 +54,48 @@ body {
     width: 45%;
 
     border-radius: 6px;
+} */
+
+.div_resultado {
+    margin: auto;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px;
+
+    width: 45%;
+
+    border-radius: 6px;
+    
+    background-color: white;
+
+    font-size: 24px;
+
 }
 
-.div_imagem img {
+.div_resultado b {
+    color: red;
+}
+
+.div_resultado p {
+    color: #3180FF;
+}
+
+
+/* .div_resultado img {
 
     width: 750px;
     height: 750px;
+
+} */
+
+.div_resultado img {
+
+    width: 300px;
+    height: 300px;
 
 }
 
@@ -125,6 +161,7 @@ body {
 
     border-radius: 7px;
 
+    text-align: justify;
     color: white;
     background-color: #3180FF;
 
