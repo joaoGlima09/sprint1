@@ -96,30 +96,46 @@
 
         let horasMensaisTrabalhadasPorFuncionarios = horasTrabalhoPorMes * qtdFuncionarios
 
-        let taxaAbsenteismoMensal = ((atestadosUltimoMes / horasMensaisTrabalhadasPorFuncionarios) * 100).toFixed(2)
+        let taxaAbsenteismoMensal = (atestadosUltimoMes / horasMensaisTrabalhadasPorFuncionarios) * 100
         let taxaAbesenteismoAnual = (taxaAbsenteismoMensal * 12).toFixed(2)
 
-        let taxaDeAtestadosMedicosMensal = ((atestadosMedicosUltimoMes / horasMensaisTrabalhadasPorFuncionarios) * 100).toFixed(2)
+        let taxaDeAtestadosMedicosMensal = (atestadosMedicosUltimoMes / horasMensaisTrabalhadasPorFuncionarios) * 100
         let taxaDeAtestadosMedicosAnual = (taxaDeAtestadosMedicosMensal * 12).toFixed(2)
 
         // let relacaoEntreAtestadosEAtestadosMedicosAnual = (taxaAbesenteismoAnual - taxaDeAtestadosMedicosAnual).toFixed(2)
 
         let mediaSalarialEmpresa = gastoComFuncionarioMensal / qtdFuncionarios
-        let mediaSalarialAnual = (mediaSalarialEmpresa * 12).toFixed(2)
-        let pagamentoPorHora = (mediaSalarialEmpresa / horasTrabalhadasPorAno).toFixed(2)
+        let mediaSalarialAnual = (mediaSalarialEmpresa * 12)
+        let pagamentoPorHora = mediaSalarialEmpresa / horasTrabalhadasPorAno
 
-        let desperdicioPorHora = ((horasTrabalhadasPorAno / 100) * taxaDeAtestadosMedicosAnual).toFixed(2)
+        let desperdicioPorHora = ((horasTrabalhadasPorAno / 100) * taxaDeAtestadosMedicosAnual)
         let desperdicioDeSalario = ((pagamentoPorHora * desperdicioPorHora * qtdFuncionarios) * 12).toFixed(2)
 
         div_resultado.innerHTML = ` 
 
         <img src="images/economia.png" alt="imagem_fundo">
         
-        <h2> <br> <br> A <b> taxa de absenteismo </b> da <p> ${nomeEmpresa} </p> é <b> ${taxaAbesenteismoAnual}% </b> anual <br><br>
+        <h2> 
+            
+            <br> <br> A media da taxa de absenteísmo da ${nomeEmpresa} é <b> ${taxaAbesenteismoAnual}% </b> anual <br><br>
         
-        Dessa taxa de absenteismo <b> ${taxaDeAtestadosMedicosAnual}% </b> podem ter ocorrido devido as <b> mudanças de temperatura </b> <br><br>
+            Dessa taxa de absenteísmo <b> ${taxaDeAtestadosMedicosAnual}% </b> podem ocorrer devido <b> as condições climáticas   </b> <br><br>
 
-        Com isso, você paga em salários <b> R$${desperdicioDeSalario} </b>ao ano, sendo que o funcionário não produz <br><br> </h2>
+            Com isso, você paga cerda de <b> R$${desperdicioDeSalario} </b> em salário ao ano, sendo que o funcionário não produz <br><br> 
+        
+        </h2>
+
+        <h2 class="h2_mensagem"> 
+            
+            Esse problemas podem ser solucionados com o monitoramento adequado do ambiente de trabalho!
+
+            Nosso produto melhora e otimiza o cuidado com o funcionário, preservando a sua <b> saúde e produtividade <b>
+            
+            O que pode melhorar a perfomance da sua empresa e diminuir a taxa de absenteísmo no total, fazendo com que ela possa chegar em até 5%
+
+            
+
+        </h2>
 
         `
 
