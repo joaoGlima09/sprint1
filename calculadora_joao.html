@@ -100,10 +100,12 @@
         // let relacaoEntreAtestadosEAtestadosMedicosAnual = (taxaAbesenteismoAnual - taxaDeAtestadosMedicosAnual).toFixed(2)
 
         let mediaSalarialEmpresa = gastoComFuncionarioMensal / qtdFuncionarios
-        let pagamentoPorHora = mediaSalarialEmpresa / horasTrabalhoPorMes
 
-        let desperdicioPorHora = (horasTrabalhoPorMes / 100) * taxaDeAtestadosMedicosMensal
-        let desperdicioDeSalario = ((pagamentoPorHora - desperdicioPorHora) * qtdFuncionarios).toFixed(2)
+        let m
+
+        let calculoEconomia = taxaAbsenteismoMensal - 4
+
+        
 
         div_resultado.innerHTML = ` 
 
@@ -115,7 +117,7 @@
         
             Dessa taxa de absenteísmo <b> ${taxaDeAtestadosMedicosMensal}% </b> podem ocorrer devido <b> as condições climáticas   </b> <br><br>
 
-            Com isso, você paga cerda de <b> R$${desperdicioDeSalario} </b> em salário ao ano, sendo que o funcionário não produz <br><br> 
+            Com isso, você paga cerca de <b> R$${desperdicioAnual} </b> em salário ao ano, sendo que o funcionário não produz <br><br> 
         
         </h2>
 
@@ -125,7 +127,7 @@
             
             Fazendo a taxa de absenteísmo chegar em média 4% se tornando o ideal para sua empresa.
 
-            Com isso a redução de desperdicio é torno de ${de}
+            Com isso a redução de desperdicio é torno de ${pagamentoPorHora}
 
         </h2>
 
